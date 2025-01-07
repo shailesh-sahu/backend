@@ -8,7 +8,7 @@ const sessions = require("express-session")
 const { apiV1 } = require("./routes")
 const { connectDb } = require("./db")
 const { UserModel } = require("./models/user")
-
+const cors = require("cors");
 const app = express()
 
 app.use(morgan("dev"))
@@ -35,6 +35,24 @@ app.use(
     resave: true,
   })
 )
+
+app.use(cors({
+  origin: (origin, callback) => {
+    const allowedOrigins = [
+      "http://localhost:3000", // Local development
+      "https://frontend-silk-three-25.vercel.app", // Deployed frontend
+      "https://frontend-bnw3nkqep-shailesh-kumar-sahus-projects.vercel.app/",
+      "https://frontend-git-main-shailesh-kumar-sahus-projects.vercel.app/",
+    ];
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  credentials: true,
+}));
+
 
 app.use("/v1", apiV1)
 
