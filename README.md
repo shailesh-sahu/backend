@@ -1,6 +1,6 @@
 # Library Management System (LMS)
 
-This is the backend part of the full-stack **Library Management System (LMS)** project, built using React.js for the frontend and Node.js with Express.js for the backend. It enables library administrators and users to manage books, borrow books, and track availability seamlessly.
+This is the **backend part** of the full-stack **Library Management System (LMS)** project, built using React.js for the frontend and Node.js with Express.js for the backend. It enables library administrators and users to manage books, borrow books, and track availability seamlessly.
 
 ---
 
